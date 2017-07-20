@@ -95,6 +95,13 @@ def makeWebhookResult(data):
     speech = "🐇🐇 Today in " + location.get('city') + ": " + condition.get('text') + \
              ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
 
+        
+    def makeWebhookResultForGetJoke(data):
+    valueString = data.get('value')
+    joke = valueString.get('joke')
+    speech = joke
+    displayText = joke    
+
     print("Response:")
     print(speech)
 
@@ -105,19 +112,9 @@ def makeWebhookResult(data):
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
-def makeWebhookResultForGetJoke(data):
-    valueString = data.get('value')
-    joke = valueString.get('joke')
-    speechText = joke
-    displayText = joke
+
     
-    return {
-        "speech": speechText,
-        "displayText": displayText,
-        # "data": data,
-        # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
-    }
+
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
