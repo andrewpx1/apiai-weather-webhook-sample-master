@@ -36,8 +36,7 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "getjoke":
-        return {}
+    if req.get("result").get("action") == "getjoke":
     baseurl = "http://api.icndb.com/jokes/random"
     yql_url = baseurl
     result = urlopen(yql_url).read()
