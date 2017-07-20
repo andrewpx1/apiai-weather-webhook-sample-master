@@ -47,13 +47,12 @@ def processRequest(req):
     data = json.loads(result)
     res = makeWebhookResult(data)
     elif req.get("result").get("action") != "getjoke":
-        
+        return {}
         baseurl = "http://api.icndb.com/jokes/random"
         result = urlopen(baseurl).read()
         data = json.loads(result)
         res = makeWebhookResultForGetJoke(data)
-    else:
-        return {}
+        
     return res
 
 
