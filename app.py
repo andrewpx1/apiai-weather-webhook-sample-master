@@ -41,11 +41,10 @@ def processRequest(req):
     yql_url = baseurl
     result = urlopen(yql_url).read()
     data = json.loads(result)
-    res = makeWebhookResult(data)
+    res = makeWebhookResult(data)  
+    else:
+	 return {}
     return res
-	else:
-	return {}
-
 
 def makeWebhookResult(data):
     valueString = data.get('value')
