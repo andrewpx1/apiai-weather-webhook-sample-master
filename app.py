@@ -46,7 +46,7 @@ def processRequest(req):
     result = urlopen(yql_url).read()
     data = json.loads(result)
     res = makeWebhookResult(data)
-	elif req.get("result").get("action")=="getjoke":
+	elif req.get("result").get("action") == "getjoke":
         baseurl = "http://api.icndb.com/jokes/random"
         result = urlopen(baseurl).read()
         data = json.loads(result)
