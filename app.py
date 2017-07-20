@@ -47,7 +47,7 @@ def processRequest(req):
     data = json.loads(result)
     res = makeWebhookResult(data)
     elif req.get("result").get("action") != "getjoke":
-        return {}
+        
         baseurl = "http://api.icndb.com/jokes/random"
         result = urlopen(baseurl).read()
         data = json.loads(result)
@@ -110,6 +110,7 @@ def makeWebhookResultForGetJoke(data):
     joke = valueString.get('joke')
     speechText = joke
     displayText = joke
+    
     return {
         "speech": speechText,
         "displayText": displayText,
@@ -117,19 +118,6 @@ def makeWebhookResultForGetJoke(data):
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
-def makeWebhookResultForGetJoke(data):
-    valueString = data.get('value')
-    joke = valueString.get('joke')
-    speechText = joke
-    displayText = joke
-    return {
-        "speech": speechText,
-        "displayText": displayText,
-        # "data": data,
-        # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
-    }
-
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
