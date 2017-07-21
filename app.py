@@ -26,9 +26,12 @@ def webhook():
 
     print("Request:")
     print(json.dumps(req, indent=4))
-
-    res = chucknorris.processRequest(req)
-
+    
+    if req.get("result").get("action") == "getjoke":
+        res = chucknorris.processRequest(req)
+    else:
+        return{}
+    
     res = json.dumps(res, indent=4)
     # print(res)
     r = make_response(res)
