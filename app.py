@@ -10,6 +10,7 @@ from urllib.error import HTTPError
 
 import json
 import os
+import chucknorris
 
 from flask import Flask
 from flask import request
@@ -26,7 +27,7 @@ def webhook():
     print("Request:")
     print(json.dumps(req, indent=4))
 
-    res = from chucknorris import processRequest(req)
+    res = chucknorris.processRequest(req)
 
     res = json.dumps(res, indent=4)
     # print(res)
