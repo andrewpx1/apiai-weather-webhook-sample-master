@@ -11,6 +11,7 @@ from urllib.error import HTTPError
 import json
 import os
 import chucknorris
+import pxyahoo
 
 from flask import Flask
 from flask import request
@@ -29,6 +30,8 @@ def webhook():
     
     if req.get("result").get("action") == "getjoke":
         res = chucknorris.processRequest(req)
+    elif req.get("result").get("action") == "yahooWeatherForecast":
+        res = pxyahoo.processRequest(req)
     else:
         return{}
     
