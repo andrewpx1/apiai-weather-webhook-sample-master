@@ -34,17 +34,18 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
-if req.get("result").get("action") == "getjoke":
-	def processRequest(req):
-		baseurl = "http://api.icndb.com/jokes/random"
-		yql_url = baseurl
-		result = urlopen(yql_url).read()
-		data = json.loads(result)
-		res = makeWebhookResult(data)
-		return res
-else:
-	return {}
 
+def processRequest(req):
+    if req.get("result").get("action") != "getjoke":
+        return {}
+    baseurl = "http://api.icndb.com/jokes/random"
+    yql_url = baseurl
+    result = urlopen(yql_url).read()
+    data = json.loads(result)
+    res = makeWebhookResult(data)
+    return res
+	
+	
 def makeWebhookResult(data):
     valueString = data.get('value')
     joke = valueString.get('joke')
