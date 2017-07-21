@@ -45,6 +45,7 @@ def processRequest(req):
     res = makeWebhookResult(data)	 
     return res
 
+
 def makeWebhookResult(data):
     valueString = data.get('value')
     joke = valueString.get('joke')
