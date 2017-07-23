@@ -30,7 +30,7 @@ def makeWebhookResult(data):
 	url = "http://www.rabbit.org/fun/net-bunnies.html"
 	regex = 'http://www.rabbit.org/graphics/fun/netbunnies/(.+?)">'
 	txt = re.compile(regex)
-	site = urllib.urlopen(url)
+	site = urlopen(url)
 	site1 = site.read()
 	title1 = re.findall(txt,site1)
 	title = str(title1)
