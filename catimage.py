@@ -38,26 +38,21 @@ def processRequest(req):
 	
 def makeWebhookResult(data):
     joke = data.get('file')
-    img = get_ext(joke)
-	if img == ".gif":
+    if get_ext(joke) == ".gif":
 		txt = "video"
 		bdy = "videoUrl"
-		text = '"' + str(txt) + '"'
-		body = '"' + str(bdy) + '"'
-	else:
-		txt = "picture"
-		bdy = "picUrl"
-		text = '"' + str(txt) + '"'
-		body = '"' + str(bdy) + '"'
-	
+     else:
+	txt = "picture"
+	bdy = "picUrl"
+		
 # print(json.dumps(item, indent=4))
 	
     speech = joke
+    text = '"' + str(txt) + '"'
+    body = '"' + str(bdy) + '"'
 
     print("Response:")
     print(speech)
-    print(text)
-    print(body)
 
     kik_message = [
         {
