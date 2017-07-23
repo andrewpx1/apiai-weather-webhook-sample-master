@@ -52,7 +52,6 @@ def makeWebhookResult(data):
     print(text)
     print(body)
 
-
     kik_message = [
         {
             "type": text,
