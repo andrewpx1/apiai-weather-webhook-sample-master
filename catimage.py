@@ -39,6 +39,9 @@ def get_ext(img):
 def makeWebhookResult(data):
     speech = joke
 
+    print("Response:")
+    print(speech)
+
     kik_message = [
         {
             "type": "picture",
