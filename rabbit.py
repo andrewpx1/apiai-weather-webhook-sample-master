@@ -34,11 +34,11 @@ def processRequest(req):
 	jsondata = json.dumps(payload)
 	jsnb = jsondata.encode('utf-8')
 	data = json.loads(jsnb)
-	res = makeWebhookResult(data)
+	res = makeWebhookResult(lol)
 	return res
 	
 	
-def makeWebhookResult(data):
+def makeWebhookResult(lol):
     joke = data.get('file')
 
     # print(json.dumps(item, indent=4))
