@@ -21,15 +21,15 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-    baseurl = "http://www.rabbit.org/fun/net-bunnies.html"
-    result = urlopen(baseurl).read()
-    splitted_text = result.split("http://www.rabbit.org/graphics/fun/netbunnies/", 1)
-    splitted_text = splitted_text[1].split('">')
-    rmn = splitted_text[0]
-    dlink = '{"file"' + ":" + '"http://www.rabbit.org/graphics/fun/netbunnies/' + rmn + '"}'
-    data = json.loads(dlink)
-    res = makeWebhookResult(data)
-    return res
+	baseurl = "http://www.rabbit.org/fun/net-bunnies.html"
+	result = urlopen(baseurl).read()
+	splitext = result.split("http://www.rabbit.org/graphics/fun/netbunnies/", 1);
+	splitext = splitext[1].split('">')
+	rmn = splitext[0]
+	dlink = '{"file"' + ":" + '"http://www.rabbit.org/graphics/fun/netbunnies/' + rmn + '"}'
+	data = json.loads(dlink)
+	res = makeWebhookResult(data)
+	return res
 	
 	
 def makeWebhookResult(data):
