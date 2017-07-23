@@ -43,36 +43,13 @@ def makeWebhookResult(data):
     print("Response:")
     print(speech)
 
-    if getext(joke) == ".gif":
-        kik_message = [
-            {
-                "type": "video",
-                "videoUrl": speech
-            }
-        ]
-    else:
-        kik_message = [
-            {
-                "type": "picture",
-                "picUrl": speech
-            }
-        ]
-
-    print(json.dumps(kik_message))
-
     return {
         "speech": speech,
         "displayText": speech,
-        "data": {"kik": kik_message},
+        # "data": {"kik": kik_message},
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
-
-
-def getext(joke):
-    parsed = urlparse(joke)
-    root, ext = splitext(parsed.path)
-    return ext
 
 
 if __name__ == '__main__':
