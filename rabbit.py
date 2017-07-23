@@ -27,8 +27,13 @@ def processRequest(req):
 	plitext = result.split("http://www.rabbit.org/graphics/fun/netbunnies/", 1);
 	plitext = plitext[1].split('">')
 	rmn = plitext[0]
-	dlink = '{"file"' + ":" + '"http://www.rabbit.org/graphics/fun/netbunnies/' + rmn + '"}'
-	data = json.loads(dlink)
+	dlink = "http://www.rabbit.org/graphics/fun/netbunnies/" + rmn
+	payload = {
+		"file": dlink
+	}
+	jsondata = json.dumps(payload)
+	jsnb = jsondata.encode('utf-8')
+	data = json.loads(jsnb)
 	res = makeWebhookResult(data)
 	return res
 	
