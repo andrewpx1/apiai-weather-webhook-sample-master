@@ -4,13 +4,14 @@ from __future__ import print_function
 from future.standard_library import install_aliases
 install_aliases()
 
+from urllib.parse import urlparse, urlencode
+from urllib.request import urlopen, Request
+from urllib.error import HTTPError
 from urlparse import urlparse
 from os.path import splitext
 
 import json
 import os
-import urllib
-
 
 from flask import Flask
 from flask import request
@@ -20,43 +21,35 @@ from flask import make_response
 app = Flask(__name__)
 
 
-def get_ext(url):
-    """Return the filename extension from url, or ''."""
-    parsed = urlparse(url)
-    root, ext = splitext(parsed.path)
-    return ext
-
-
 def processRequest(req):
     baseurl = "http://random.cat/meow"
-    result = urllib.urlopen(baseurl).read()
+    result = urlopen(baseurl).read()
     data = json.loads(result)
     res = makeWebhookResult(data)
     return res
+
+
+def get_ext(img):
+    """Return the filename extension from url, or ''."""
+    parsed = urlparse(img)
+    root, ext = splitext(parsed.path)
+    return ext
 	
 	
 def makeWebhookResult(data):
     joke = data.get('file')
-    if get_ext(joke) == ".gif":
-		txt = "video"
-		bdy = "videoUrl"
-    else:
-	txt = "picture"
-	bdy = "picUrl"
-		
-# print(json.dumps(item, indent=4))
+
+	# print(json.dumps(item, indent=4))
 	
     speech = joke
-    text = '"' + str(txt) + '"'
-    body = '"' + str(bdy) + '"'
 
     print("Response:")
     print(speech)
 
     kik_message = [
         {
-            "type": text,
-            body: speech
+            "type": "picture",
+            "picUrl": speech
         }
     ]
 
@@ -70,7 +63,7 @@ def makeWebhookResult(data):
         "source": "apiai-weather-webhook-sample"
     }
 
-	
+
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
