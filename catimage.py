@@ -40,7 +40,7 @@ def makeWebhookResult(data):
     if get_ext(joke) == ".gif":
 		txt = "video"
 		bdy = "videoUrl"
-     else:
+    else:
 	txt = "picture"
 	bdy = "picUrl"
 		
