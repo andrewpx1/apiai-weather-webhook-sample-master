@@ -42,7 +42,7 @@ def makeWebhookResult(data):
     print("Response:")
     print(speech)
 
-    if getext(joke) == ".gif":
+    if getext(dlink) == ".gif":
         kik_message = [
             {
                 "type": "video",
