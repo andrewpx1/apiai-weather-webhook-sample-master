@@ -13,7 +13,7 @@ import os
 import chucknorris
 import pxyahoo
 import catimage
-import rabbit
+import pxbun
 
 from flask import Flask
 from flask import request
@@ -37,7 +37,7 @@ def webhook():
     elif req.get("result").get("action") == "meow":
         res = catimage.processRequest(req)
     elif req.get("result").get("action") == "bunny":
-        res = rabbit.processRequest(req)        
+        res = pxbun.processRequest(req)        
     else:
         return{}
     
