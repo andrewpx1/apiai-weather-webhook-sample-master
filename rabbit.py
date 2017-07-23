@@ -27,14 +27,7 @@ def processRequest(req):
     plitext = result.split("http://www.rabbit.org/graphics/fun/netbunnies/", 1);
     plitext = plitext[1].split('">')
     rmn = plitext[0]
-    dlink = "http://www.rabbit.org/graphics/fun/netbunnies/" + rmn
-    payload = {
-		"file": dlink
-    }
-    jsondata = json.dumps(payload)
-    jsnb = jsondata.encode('utf-8')
-    data = json.loads(jsnb)
-    joke = data.get('file')
+    joke = "http://www.rabbit.org/graphics/fun/netbunnies/" + rmn
 
     # print(json.dumps(item, indent=4))
 	
