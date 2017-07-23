@@ -68,7 +68,6 @@ def makeWebhookResult(data):
 
 
 def getext(joke):
-    """Return the filename extension from url, or ''."""
     parsed = urlparse(joke)
     root, ext = splitext(parsed.path)
     return ext
