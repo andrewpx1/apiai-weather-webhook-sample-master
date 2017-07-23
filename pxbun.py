@@ -21,12 +21,7 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-    baseurl = "http://www.rabbit.org/fun/net-bunnies.html"
-    result = urlopen(baseurl).read()
-    plitext = result.split("http://www.rabbit.org/graphics/fun/netbunnies/", 1);
-    plitext = plitext[1].split('">')
-    rmn = plitext[0]
-    joke = "http://www.rabbit.org/graphics/fun/netbunnies/" + rmn
+    joke = "bal"
 
     # print(json.dumps(item, indent=4))
 	
