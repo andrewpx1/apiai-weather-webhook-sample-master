@@ -22,23 +22,18 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-	baseurl = "http://www.rabbit.org/fun/net-bunnies.html"
-	result = urllib.urlopen(baseurl).read()
-	plitext = result.split("http://www.rabbit.org/graphics/fun/netbunnies/", 1);
-	plitext = plitext[1].split('">')
-	rmn = plitext[0]
-	dlink = "http://www.rabbit.org/graphics/fun/netbunnies/" + rmn
-	payload = {
+    baseurl = "http://www.rabbit.org/fun/net-bunnies.html"
+    result = urllib.urlopen(baseurl).read()
+    plitext = result.split("http://www.rabbit.org/graphics/fun/netbunnies/", 1);
+    plitext = plitext[1].split('">')
+    rmn = plitext[0]
+    dlink = "http://www.rabbit.org/graphics/fun/netbunnies/" + rmn
+    payload = {
 		"file": dlink
-	}
-	jsondata = json.dumps(payload)
-	jsnb = jsondata.encode('utf-8')
-	data = json.loads(jsnb)
-	res = makeWebhookResult(lol)
-	return res
-	
-	
-def makeWebhookResult(lol):
+    }
+    jsondata = json.dumps(payload)
+    jsnb = jsondata.encode('utf-8')
+    data = json.loads(jsnb)
     joke = data.get('file')
 
     # print(json.dumps(item, indent=4))
