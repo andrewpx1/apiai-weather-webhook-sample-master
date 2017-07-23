@@ -33,7 +33,7 @@ def makeWebhookResult(data):
     splitted_text = splitted_text[1].split('">')
     rmn = splitted_text[0]
     dlink = "http://www.rabbit.org/graphics/fun/netbunnies/" + rmn
-    joke = dlink
+    joke = '"' + dlink + '"'
 
     # print(json.dumps(item, indent=4))
 	
