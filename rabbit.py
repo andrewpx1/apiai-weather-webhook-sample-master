@@ -11,7 +11,6 @@ from os.path import splitext
 
 import json
 import os
-import re
 
 from flask import Flask
 from flask import request
@@ -22,23 +21,19 @@ app = Flask(__name__)
 
 
 def processRequest(req):
+    baseurl = "http://www.rabbit.org/fun/net-bunnies.html"
+    site = urllib.urlopen(baseurl)
+    sitee = site.read()
     res = makeWebhookResult(data)
     return res
 	
 	
 def makeWebhookResult(data):
-	url = "http://www.rabbit.org/fun/net-bunnies.html"
-	regex = 'http://www.rabbit.org/graphics/fun/netbunnies/(.+?)">'
-	txt = re.compile(regex)
-	site = urlopen(url)
-	site1 = site.read()
-	title1 = re.findall(txt,site1)
-	title = str(title1)
-	splitted_text = title.split("'", 1);
-	splitted_text = splitted_text[1].split("'")
-	rmn = splitted_text[0]
-	link = "http://www.rabbit.org/graphics/fun/netbunnies/" + rmn
-	joke = link
+    splitted_text = sitee.split("http://www.rabbit.org/graphics/fun/netbunnies/", 1);
+    splitted_text = splitted_text[1].split('">')
+    rmn = splitted_text[0]
+    dlink = "http://www.rabbit.org/graphics/fun/netbunnies/" + rmn
+    joke = dlink
 
     # print(json.dumps(item, indent=4))
 	
