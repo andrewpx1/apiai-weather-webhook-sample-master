@@ -22,7 +22,7 @@ app = Flask(__name__)
 
 def processRequest(req):
     baseurl = "http://www.rabbit.org/fun/net-bunnies.html"
-    site = urllib.urlopen(baseurl)
+    site = urlopen(baseurl)
     sitee = site.read()
     res = makeWebhookResult(data)
     return res
