@@ -39,19 +39,19 @@ def makeWebhookResult(data):
     print(speech)
 
     if getext(joke) == ".gif":
-		kik_message = [
-			{
-				"type": "video",
-				"videoUrl": speech
-			}
-		]
+        kik_message = [
+            {
+                "type": "video",
+                "videoUrl": speech
+            }
+        ]
     else:
-	kik_message = [
-		{
-			"type": "picture",
-			"picUrl": speech
-		}
-	]
+        kik_message = [
+            {
+                "type": "picture",
+                "picUrl": speech
+            }
+        ]
 
     print(json.dumps(kik_message))
 
