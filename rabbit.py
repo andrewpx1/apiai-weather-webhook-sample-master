@@ -26,13 +26,14 @@ def processRequest(req):
     splitted_text = result.split("http://www.rabbit.org/graphics/fun/netbunnies/", 1)
     splitted_text = splitted_text[1].split('">')
     rmn = splitted_text[0]
+    dlink = "http://www.rabbit.org/graphics/fun/netbunnies/" + rmn
+    data = json.loads(dlink)
     res = makeWebhookResult(data)
     return res
 	
 	
 def makeWebhookResult(data):
-    dlink = "http://www.rabbit.org/graphics/fun/netbunnies/" + rmn
-    joke = '"' + dlink + '"'
+    joke = data
 
     # print(json.dumps(item, indent=4))
 	
@@ -67,7 +68,7 @@ def makeWebhookResult(data):
     }
 
 
-def getext(dlink):
+def getext(joke):
     parsed = urlparse(dlink)
     root, ext = splitext(parsed.path)
     return ext
