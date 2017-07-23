@@ -7,7 +7,6 @@ install_aliases()
 from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
-from urlparse import urlparse
 from os.path import splitext
 
 import json
