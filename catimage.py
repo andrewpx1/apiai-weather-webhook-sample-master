@@ -7,6 +7,8 @@ install_aliases()
 from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
+from urlparse import urlparse
+from os.path import splitext
 
 import json
 import os
@@ -29,6 +31,7 @@ def processRequest(req):
 	
 def makeWebhookResult(data):
     joke = data.get('file')
+	img = get_ext(joke)
 
 	# print(json.dumps(item, indent=4))
 	
@@ -36,11 +39,18 @@ def makeWebhookResult(data):
 
     print("Response:")
     print(speech)
+	
+	if img == ".gif":
+		text = video
+		body = videoUrl
+	else:
+		text = picture
+		body = picUrl
 
     kik_message = [
         {
-            "type": "picture",
-            "picUrl": speech
+            "type": "text",
+            "body": speech
         }
     ]
 
@@ -54,7 +64,14 @@ def makeWebhookResult(data):
         "source": "apiai-weather-webhook-sample"
     }
 
+	
+def get_ext(url):
+    """Return the filename extension from url, or ''."""
+    parsed = urlparse(url)
+    root, ext = splitext(parsed.path)
+    return ext
 
+	
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
