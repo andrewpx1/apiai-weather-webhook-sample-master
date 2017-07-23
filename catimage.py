@@ -24,6 +24,7 @@ def processRequest(req):
     baseurl = "http://random.cat/meow"
     result = urlopen(baseurl).read()
     data = json.loads(result)
+    joke = data.get('file')
     res = makeWebhookResult(data)
     return res
 
@@ -36,7 +37,6 @@ def get_ext(img):
 	
 	
 def makeWebhookResult(data):
-    joke = data.get('file')
     speech = joke
 
     kik_message = [
