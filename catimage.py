@@ -32,17 +32,18 @@ def processRequest(req):
 def makeWebhookResult(data):
     joke = data.get('file')
     img = get_ext(joke)
-
-
+    if img == ".gif":
+		txt = "video"
+		bdy = "videoUrl"
+		text = '"' + str(txt) + '"'
+		body = '"' + str(bdy) + '"'
+     else:
+		txt = "picture"
+		bdy = "picUrl"
+		text = '"' + str(txt) + '"'
+		body = '"' + str(bdy) + '"'
 	
-	if img == ".gif":
-		text = "video"
-		body = "videoUrl"
-	else:
-		text = "picture"
-		body = "picUrl"
-	
-	# print(json.dumps(item, indent=4))
+# print(json.dumps(item, indent=4))
 	
     speech = joke
 
