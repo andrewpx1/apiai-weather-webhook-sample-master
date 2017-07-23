@@ -27,13 +27,13 @@ def processRequest(req):
     splitted_text = splitted_text[1].split('">')
     rmn = splitted_text[0]
     dlink = "http://www.rabbit.org/graphics/fun/netbunnies/" + rmn
-    data = json.loads(dlink)
+    data = json.loads(result)
     res = makeWebhookResult(data)
     return res
 	
 	
 def makeWebhookResult(data):
-    joke = data
+    joke = '"' + dlink + '"'
 
     # print(json.dumps(item, indent=4))
 	
