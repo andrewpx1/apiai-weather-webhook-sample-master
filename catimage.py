@@ -21,6 +21,13 @@ from flask import make_response
 app = Flask(__name__)
 
 
+def get_ext(url):
+    """Return the filename extension from url, or ''."""
+    parsed = urlparse(url)
+    root, ext = splitext(parsed.path)
+    return ext
+
+
 def processRequest(req):
     baseurl = "http://random.cat/meow"
     result = urlopen(baseurl).read()
@@ -32,12 +39,12 @@ def processRequest(req):
 def makeWebhookResult(data):
     joke = data.get('file')
     img = get_ext(joke)
-    if img == ".gif":
+	if img == ".gif":
 		txt = "video"
 		bdy = "videoUrl"
 		text = '"' + str(txt) + '"'
 		body = '"' + str(bdy) + '"'
-     else:
+	else:
 		txt = "picture"
 		bdy = "picUrl"
 		text = '"' + str(txt) + '"'
@@ -68,13 +75,6 @@ def makeWebhookResult(data):
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
-
-	
-def get_ext(url):
-    """Return the filename extension from url, or ''."""
-    parsed = urlparse(url)
-    root, ext = splitext(parsed.path)
-    return ext
 
 	
 if __name__ == '__main__':
