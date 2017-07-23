@@ -4,14 +4,13 @@ from __future__ import print_function
 from future.standard_library import install_aliases
 install_aliases()
 
-from urllib.parse import urlparse, urlencode
-from urllib.request import urlopen, Request
-from urllib.error import HTTPError
 from urlparse import urlparse
 from os.path import splitext
 
 import json
 import os
+import urllib
+
 
 from flask import Flask
 from flask import request
@@ -30,7 +29,7 @@ def get_ext(url):
 
 def processRequest(req):
     baseurl = "http://random.cat/meow"
-    result = urlopen(baseurl).read()
+    result = urllib.urlopen(baseurl).read()
     data = json.loads(result)
     res = makeWebhookResult(data)
     return res
