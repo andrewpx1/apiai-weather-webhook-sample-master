@@ -7,7 +7,6 @@ install_aliases()
 from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
-from os.path import splitext
 
 import json
 import os
@@ -24,19 +23,15 @@ def processRequest(req):
     baseurl = "http://random.cat/meow"
     result = urlopen(baseurl).read()
     data = json.loads(result)
-    joke = data.get('file')
     res = makeWebhookResult(data)
     return res
-
-
-def get_ext(img):
-    """Return the filename extension from url, or ''."""
-    parsed = urlparse(img)
-    root, ext = splitext(parsed.path)
-    return ext
 	
 	
 def makeWebhookResult(data):
+    joke = data.get('file')
+
+	# print(json.dumps(item, indent=4))
+	
     speech = joke
 
     print("Response:")
