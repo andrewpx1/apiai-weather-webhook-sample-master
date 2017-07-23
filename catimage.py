@@ -37,18 +37,10 @@ def get_ext(img):
 	
 def makeWebhookResult(data):
     joke = data.get('file')
-    if get_ext(joke) == ".gif":
-		txt = "video"
-		bdy = "videoUrl"
-    else:
-	txt = "picture"
-	bdy = "picUrl"
-		
+
 # print(json.dumps(item, indent=4))
 	
     speech = joke
-    text = '"' + str(txt) + '"'
-    body = '"' + str(bdy) + '"'
 
     print("Response:")
     print(speech)
