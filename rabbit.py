@@ -22,7 +22,7 @@ app = Flask(__name__)
 
 def processRequest(req):
     baseurl = "http://www.rabbit.org/fun/net-bunnies.html"
-    result = urlopen(baseurl).read()
+    result = urllib.urlopen(baseurl).read()
     splitted_text = result.split("http://www.rabbit.org/graphics/fun/netbunnies/", 1);
     splitted_text = splitted_text[1].split('">')
     rmn = splitted_text[0]
