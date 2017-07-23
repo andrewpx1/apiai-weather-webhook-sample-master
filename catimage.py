@@ -31,26 +31,31 @@ def processRequest(req):
 	
 def makeWebhookResult(data):
     joke = data.get('file')
-	img = get_ext(joke)
+    img = get_ext(joke)
 
+
+	
+	if img == ".gif":
+		text = "video"
+		body = "videoUrl"
+	else:
+		text = "picture"
+		body = "picUrl"
+	
 	# print(json.dumps(item, indent=4))
 	
     speech = joke
 
     print("Response:")
     print(speech)
-	
-	if img == ".gif":
-		text = video
-		body = videoUrl
-	else:
-		text = picture
-		body = picUrl
+    print(text)
+    print(body)
+
 
     kik_message = [
         {
-            "type": "text",
-            "body": speech
+            "type": text,
+            body: speech
         }
     ]
 
