@@ -20,9 +20,6 @@ from flask import make_response
 app = Flask(__name__)
 
 
-
-
-
 def processRequest(req):
     baseurl = "http://random.cat/meow"
     result = urlopen(baseurl).read()
