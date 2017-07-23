@@ -7,8 +7,6 @@ install_aliases()
 from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
-from urlparse import urlparse
-from os.path import splitext
 
 import json
 import os
@@ -21,13 +19,6 @@ from flask import make_response
 app = Flask(__name__)
 
 
-def get_ext(url):
-    """Return the filename extension from url, or ''."""
-    parsed = urlparse(url)
-    root, ext = splitext(parsed.path)
-    return ext
-
-
 def processRequest(req):
     baseurl = "http://random.cat/meow"
     result = urlopen(baseurl).read()
@@ -37,20 +28,20 @@ def processRequest(req):
 	
 	
 def makeWebhookResult(data):
-    img = data.get('file')
-	
+    joke = data.get('file')
+
 	# print(json.dumps(item, indent=4))
 	
-    speech = img
+    speech = joke
 
     print("Response:")
     print(speech)
 
     kik_message = [
-	    	{
-            		"type": "picture",
-            		"picUrl": speech
-        	}
+        {
+            "type": "picture",
+            "picUrl": speech
+        }
     ]
 
     print(json.dumps(kik_message))
