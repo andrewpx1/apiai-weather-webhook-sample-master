@@ -39,15 +39,15 @@ def makeWebhookResult(data):
     print(speech)
 
     kik_message = [
-	if extension == ".gif"
+	if extension == ".gif":
 		{
             		"type": "video",
             		"videoUrl": speech
         	}
 	else:
 	    	{
-            	"type": "picture",
-            	"picUrl": speech
+            		"type": "picture",
+            		"picUrl": speech
         	}
     ]
 
