@@ -11,6 +11,7 @@ from os.path import splitext
 
 import json
 import os
+import urllib
 
 from flask import Flask
 from flask import request
@@ -22,7 +23,7 @@ app = Flask(__name__)
 
 def processRequest(req):
 	baseurl = "http://www.rabbit.org/fun/net-bunnies.html"
-	result = urlopen(baseurl).read()
+	result = urllib.urlopen(baseurl).read()
 	splitext = result.split("http://www.rabbit.org/graphics/fun/netbunnies/", 1);
 	splitext = splitext[1].split('">')
 	rmn = splitext[0]
