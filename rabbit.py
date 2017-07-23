@@ -24,9 +24,9 @@ app = Flask(__name__)
 def processRequest(req):
 	baseurl = "http://www.rabbit.org/fun/net-bunnies.html"
 	result = urllib.urlopen(baseurl).read()
-	splitext = result.split("http://www.rabbit.org/graphics/fun/netbunnies/", 1);
-	splitext = splitext[1].split('">')
-	rmn = splitext[0]
+	plitext = result.split("http://www.rabbit.org/graphics/fun/netbunnies/", 1);
+	plitext = plitext[1].split('">')
+	rmn = plitext[0]
 	dlink = '{"file"' + ":" + '"http://www.rabbit.org/graphics/fun/netbunnies/' + rmn + '"}'
 	data = json.loads(dlink)
 	res = makeWebhookResult(data)
