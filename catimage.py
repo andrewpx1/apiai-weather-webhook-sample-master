@@ -23,13 +23,19 @@ def processRequest(req):
     baseurl = "http://random.cat/meow"
     result = urlopen(baseurl).read()
     data = json.loads(result)
-    joke = data.get('file')
     res = makeWebhookResult(data)
     return res
 	
 	
 def makeWebhookResult(data):
+    joke = data.get('file')
+
+    # print(json.dumps(item, indent=4))
+	
     speech = joke
+
+    print("Response:")
+    print(speech)
 
     print("Response:")
     print(speech)
