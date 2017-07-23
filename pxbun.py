@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 def processRequest(req):
 	url = "http://www.rabbit.org/fun/net-bunnies.html"
-	result = urlopen(url).read()
+	result = urllib.urlopen(url).read()
 	reg = 'http://www.rabbit.org/graphics/fun/netbunnies/(.+?)">'
 	pat = re.compile(reg)
 	pri = re.findall(pat,result)
