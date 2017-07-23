@@ -7,6 +7,8 @@ install_aliases()
 from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
+from urlparse import urlparse
+from os.path import splitext
 
 import json
 import os
@@ -17,6 +19,13 @@ from flask import make_response
 
 # Flask app should start in global layout
 app = Flask(__name__)
+
+
+def get_ext(url):
+    """Return the filename extension from url, or ''."""
+    parsed = urlparse(url)
+    root, ext = splitext(parsed.path)
+    return ext
 
 
 def processRequest(req):
