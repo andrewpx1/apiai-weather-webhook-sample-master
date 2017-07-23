@@ -24,6 +24,7 @@ def get_ext(url):
     """Return the filename extension from url, or ''."""
     parsed = urlparse(url)
     root, ext = splitext(parsed.path)
+    return ext
 
 
 def processRequest(req):
