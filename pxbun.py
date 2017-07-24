@@ -7,6 +7,7 @@ install_aliases()
 import json
 import os
 import urllib
+import re
 
 from re import findall
 from urllib.parse import urlparse, urlencode
@@ -19,19 +20,17 @@ from flask import make_response
 
 # Flask app should start in global layout
 app = Flask(__name__) 
-   
-
-baseurl = "http://www.rabbit.org/fun/net-bunnies.html"
-site = urllib.urlopen(baseurl)
-htmltxt = site.read()
-lnb = htmltxt.decode()
-txt = 'http://www.rabbit.org/graphics/fun/netbunnies/(.+?)">'
-title1 = findall(txt,lnb)
-dcd = title1[0]
-link = "http://www.rabbit.org/graphics/fun/netbunnies/" + dcd
-
+ 
 
 def processRequest(req):
+   baseurl = "http://www.rabbit.org/fun/net-bunnies.html"
+   site = urlopen(baseurl)
+   htmltxt = site.read()
+   lnb = htmltxt.decode()
+   txt = 'http://www.rabbit.org/graphics/fun/netbunnies/(.+?)">'
+   title1 = findall(txt,lnb)
+   dcd = title1[0]
+   link = "http://www.rabbit.org/graphics/fun/netbunnies/" + dcd
    joke = link
    speech = joke
 
