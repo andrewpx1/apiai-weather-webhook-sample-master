@@ -6,9 +6,9 @@ install_aliases()
 
 import json
 import os
-import re
 import urllib
 
+from re import findall
 from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
@@ -21,13 +21,13 @@ from flask import make_response
 app = Flask(__name__) 
    
 
-req = "http://www.rabbit.org/fun/net-bunnies.html"
-site = urllib.urlopen(req)
-site1 = site.read()
-regex = 'http://www.rabbit.org/graphics/fun/netbunnies/(.+?)">'
-txt = re.compile(regex)
-title1 = re.findall(txt,site1)
-dcd = title1[0].decode()
+baseurl = "http://www.rabbit.org/fun/net-bunnies.html"
+site = urllib.urlopen(baseurl)
+htmltxt = site.read()
+lnb = htmltxt.decode()
+txt = 'http://www.rabbit.org/graphics/fun/netbunnies/(.+?)">'
+title1 = findall(txt,lnb)
+dcd = title1[0]
 link = "http://www.rabbit.org/graphics/fun/netbunnies/" + dcd
 
 
