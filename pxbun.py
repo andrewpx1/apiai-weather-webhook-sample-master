@@ -30,13 +30,15 @@ def processRequest(req):
    txt = 'http://www.rabbit.org/graphics/fun/netbunnies/(.+?)">'
    title1 = findall(txt,lnb)
    dcd = title1[0]
+   body = '"http://www.rabbit.org/graphics/fun/netbunnies/' + dcd + '"'
+   obje = '{"file":' + body +'}'
+   data = json.loads(obje)
    res = makeWebhookResult(data)
    return res
   
 
 def makeWebhookResult(data):
-    body = '"http://www.rabbit.org/graphics/fun/netbunnies/' + dcd + '"'
-    joke = body
+    joke = data.get('file')
 
     # print(json.dumps(item, indent=4))
 	
