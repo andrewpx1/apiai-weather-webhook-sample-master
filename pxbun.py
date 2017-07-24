@@ -25,7 +25,8 @@ def processRequest(req):
 	
 	
 def makeWebhookResult(data):
-    joke = "hihi"
+    data = "hihi"
+    joke = data
     speech = joke
 
     print("Response:")
@@ -34,7 +35,7 @@ def makeWebhookResult(data):
     return {
         "speech": speech,
         "displayText": speech,
-        "data": {"kik": kik_message},
+        # "data": {"kik": kik_message},
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
