@@ -8,6 +8,7 @@ from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
 
+import re
 import json
 import os
 import chucknorris
