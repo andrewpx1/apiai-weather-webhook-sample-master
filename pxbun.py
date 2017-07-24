@@ -14,12 +14,7 @@ import os
 
 
 def processRequest(req):
-	url = "http://www.rabbit.org/fun/net-bunnies.html"
-	result = urlopen(url).read()
-	reg = 'http://www.rabbit.org/graphics/fun/netbunnies/(.+?)">'
-	pat = re.compile(reg)
-	pri = re.findall(pat,result)
-	joke = "http://www.rabbit.org/graphics/fun/netbunnies/" + pri[0]
+	joke = "fhghj"
 		
     # print(json.dumps(item, indent=4))
 	
