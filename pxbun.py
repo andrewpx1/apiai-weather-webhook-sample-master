@@ -31,19 +31,20 @@ link = "http://www.rabbit.org/graphics/fun/netbunnies/" + title1[0]
    
    
 def processRequest(req):
-    joke = link
-    speech = joke
+   pj = urlparse(link)
+   joke = pj.geturl()
+   speech = joke
 
-    print("Response:")
-    print(speech)
+   print("Response:")
+   print(speech)
 
-    return {
+   return {
         "speech": speech,
         "displayText": speech,
         # "data": {"kik": kik_message},
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
-    }
+   }
 
 
 if __name__ == '__main__':
