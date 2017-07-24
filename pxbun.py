@@ -11,6 +11,7 @@ from os.path import splitext
 
 import json
 import os
+import re
 
 
 def processRequest(req):
