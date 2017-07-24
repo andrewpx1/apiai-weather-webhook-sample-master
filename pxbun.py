@@ -20,11 +20,6 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-    res = makeWebhookResult(data)
-    return res
-	
-	
-def makeWebhookResult(data):
     data = "hihi"
     joke = data
     speech = joke
