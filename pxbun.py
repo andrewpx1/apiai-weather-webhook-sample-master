@@ -9,15 +9,13 @@ from urllib.request import urlopen, Request
 from urllib.error import HTTPError
 from os.path import splitext
 
-import urllib
 import json
 import os
-import re
 
 
 def processRequest(req):
 	url = "http://www.rabbit.org/fun/net-bunnies.html"
-	result = urllib.urlopen(url).read()
+	result = urlopen(url).read()
 	reg = 'http://www.rabbit.org/graphics/fun/netbunnies/(.+?)">'
 	pat = re.compile(reg)
 	pri = re.findall(pat,result)
