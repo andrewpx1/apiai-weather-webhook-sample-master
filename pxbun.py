@@ -7,7 +7,6 @@ install_aliases()
 from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
-from os.path import splitext
 
 import json
 import os
@@ -21,10 +20,12 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-	joke = "fhghj"
-		
-    # print(json.dumps(item, indent=4))
+    res = makeWebhookResult(data)
+    return res
 	
+	
+def makeWebhookResult(data):
+    joke = "hihi"
     speech = joke
 
     print("Response:")
@@ -33,7 +34,7 @@ def processRequest(req):
     return {
         "speech": speech,
         "displayText": speech,
-        # "data": {"kik": kik_message},
+        "data": {"kik": kik_message},
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
