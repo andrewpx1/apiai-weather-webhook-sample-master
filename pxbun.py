@@ -20,9 +20,19 @@ from flask import make_response
 # Flask app should start in global layout
 app = Flask(__name__) 
    
-   
+
+req = "http://www.rabbit.org/fun/net-bunnies.html"
+site = urllib.urlopen(req)
+site1 = site.read()
+regex = 'http://www.rabbit.org/graphics/fun/netbunnies/(.+?)">'
+txt = re.compile(regex)
+title1 = re.findall(txt,site1)
+dcd = title1[0].decode()
+link = "http://www.rabbit.org/graphics/fun/netbunnies/" + dcd
+
+
 def processRequest(req):
-   joke = "lolllllll"
+   joke = link
    speech = joke
 
    print("Response:")
