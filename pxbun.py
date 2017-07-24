@@ -6,7 +6,6 @@ install_aliases()
 
 import json
 import os
-import lib
 import re
 import urllib
 
