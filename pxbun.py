@@ -21,13 +21,7 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-    url = "http://www.rabbit.org/fun/net-bunnies.html"
-	gex = 'http://www.rabbit.org/graphics/fun/netbunnies/(.+?)">'
-	txt = re.compile(gex)
-	site = urlopen(url).read()
-	title = re.findall(txt,site)
-	link = "http://www.rabbit.org/graphics/fun/netbunnies/" + title[0]
-	joke = link
+    joke = "oioioioi"
     speech = joke
 
     print("Response:")
