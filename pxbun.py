@@ -18,21 +18,11 @@ from flask import request
 from flask import make_response
 
 # Flask app should start in global layout
-app = Flask(__name__)
-   
-
-url = "http://www.rabbit.org/fun/net-bunnies.html"
-site = urllib.urlopen(url)
-site1 = site.read()
-regex = 'http://www.rabbit.org/graphics/fun/netbunnies/(.+?)">'
-txt = re.compile(regex)
-title1 = re.findall(txt,site1)
-link = "http://www.rabbit.org/graphics/fun/netbunnies/" + title1[0] 
+app = Flask(__name__) 
    
    
 def processRequest(req):
-   pj = urlparse(link)
-   joke = pj.geturl()
+   joke = "lolllllll"
    speech = joke
 
    print("Response:")
