@@ -4,14 +4,16 @@ from __future__ import print_function
 from future.standard_library import install_aliases
 install_aliases()
 
+import json
+import os
+import lib
+import re
+import urllib
+
+from re import findall
 from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
-
-import json
-import os
-import re
-
 from flask import Flask
 from flask import request
 from flask import make_response
@@ -21,8 +23,14 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-    joke = "oioioioi"
-    speech = joke
+    url = "http://www.rabbit.org/fun/net-bunnies.html"
+    site = urllib.urlopen(url)
+    site1 = site.read()
+    regex = 'http://www.rabbit.org/graphics/fun/netbunnies/(.+?)">'
+    txt = re.compile(regex)
+    title1 = re.findall(txt,site1)
+    link = "http://www.rabbit.org/graphics/fun/netbunnies/" + title1[0]
+    joke = str(link)
 
     print("Response:")
     print(speech)
