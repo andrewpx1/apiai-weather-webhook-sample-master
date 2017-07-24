@@ -35,7 +35,8 @@ def processRequest(req):
   
 
 def makeWebhookResult(data):
-    joke = "http://www.rabbit.org/graphics/fun/netbunnies/" + dcd
+    body = '"http://www.rabbit.org/graphics/fun/netbunnies/' + dcd + '"'
+    joke = body
 
     # print(json.dumps(item, indent=4))
 	
