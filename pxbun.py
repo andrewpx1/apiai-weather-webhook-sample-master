@@ -30,20 +30,42 @@ def processRequest(req):
    txt = 'http://www.rabbit.org/graphics/fun/netbunnies/(.+?)">'
    title1 = findall(txt,lnb)
    dcd = title1[0]
-   link = "http://www.rabbit.org/graphics/fun/netbunnies/" + dcd
-   joke = link
+   joke = "http://www.rabbit.org/graphics/fun/netbunnies/" + dcd
    speech = joke
 
    print("Response:")
    print(speech)
+   
+   if getext(joke) == ".gif":
+        kik_message = [
+            {
+                "type": "video",
+                "videoUrl": speech
+            }
+        ]
+    else:
+        kik_message = [
+            {
+                "type": "picture",
+                "picUrl": speech
+            }
+        ]
 
-   return {
+    print(json.dumps(kik_message))
+
+    return {
         "speech": speech,
         "displayText": speech,
-        # "data": {"kik": kik_message},
+        "data": {"kik": kik_message},
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
-   }
+    }
+
+
+def getext(joke):
+    parsed = urlparse(joke)
+    root, ext = splitext(parsed.path)
+    return ext
 
 
 if __name__ == '__main__':
