@@ -14,6 +14,7 @@ import chucknorris
 import pxyahoo
 import catimage
 import pxbun
+import pxfunpic
 
 from flask import Flask
 from flask import request
@@ -37,7 +38,9 @@ def webhook():
     elif req.get("result").get("action") == "meow":
         res = catimage.processRequest(req)
     elif req.get("result").get("action") == "bunny":
-        res = pxbun.processRequest(req)       
+        res = pxbun.processRequest(req)
+    elif req.get("result").get("action") == "funpic":
+        res = pxfunpic.processRequest(req)        
     else:
         return{}
     
