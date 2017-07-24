@@ -30,13 +30,21 @@ def processRequest(req):
    txt = 'http://www.rabbit.org/graphics/fun/netbunnies/(.+?)">'
    title1 = findall(txt,lnb)
    dcd = title1[0]
-   joke = "http://www.rabbit.org/graphics/fun/netbunnies/" + dcd
-   speech = joke
+   res = makeWebhookResult(data)
+   return res
+  
 
-   print("Response:")
-   print(speech)
-   
-   if getext(joke) == ".gif":
+def makeWebhookResult(data):
+    joke = "http://www.rabbit.org/graphics/fun/netbunnies/" + dcd
+
+    # print(json.dumps(item, indent=4))
+	
+    speech = joke
+
+    print("Response:")
+    print(speech)
+
+    if getext(joke) == ".gif":
         kik_message = [
             {
                 "type": "video",
