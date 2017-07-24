@@ -30,7 +30,7 @@ title1 = re.findall(txt,site1)
 link = "http://www.rabbit.org/graphics/fun/netbunnies/" + title1[0]    
     
 def processRequest(req):
-    joke = str(link)
+    joke = "oioi"
 
     print("Response:")
     print(speech)
