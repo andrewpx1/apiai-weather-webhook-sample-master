@@ -28,7 +28,7 @@ def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
     prt = parameters.get("any")
-    if prt == "px":
+    if prt != "px":
 		return {
 			"speech": "Fuck You Asshole. PX is your DAD",
 			"displayText": "Fuck You Asshole. PX is your DAD",
