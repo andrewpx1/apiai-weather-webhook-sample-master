@@ -17,6 +17,7 @@ import pxbun
 import pxfunpic
 import pxgiffun
 import pxgiphy
+import pxdad
 
 from flask import Flask
 from flask import request
@@ -46,7 +47,9 @@ def webhook():
     elif req.get("result").get("action") == "giffun":
         res = pxgiffun.processRequest(req)
     elif req.get("result").get("action") == "giphypx":
-        res = pxgiphy.processRequest(req)       
+        res = pxgiphy.processRequest(req)
+     elif req.get("result").get("action") == "dadjoke":
+        res = pxdad.processRequest(req)
     else:
         return{}
     
