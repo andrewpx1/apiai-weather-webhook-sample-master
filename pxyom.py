@@ -24,16 +24,14 @@ def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
     prt = parameters.get("any")
-    url = "http://api.yomomma.info/"
-    gurl = urlopen(url).read()
-    data = json.loads(gurl)	
-    poke = data.get('joke')
-    toke = prt + ", " + poke + " 😂😂"
-    
     if prt == "px":
-		joke = "FUCK YOU ASSHOLE. PX IS YOUR DAD."
+	joke = "FUCK YOU ASSHOLE. PX IS YOUR DAD."
     else:
-	joke = toke
+	url = "http://api.yomomma.info/"
+    	gurl = urlopen(url).read()
+    	data = json.loads(gurl)	
+    	poke = data.get('joke')
+	joke = prt + ", " + poke + " 😂😂"
 
     # print(json.dumps(item, indent=4))
 	
