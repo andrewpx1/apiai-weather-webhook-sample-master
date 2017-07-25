@@ -37,7 +37,7 @@ def processRequest(req):
         # "contextOut": [],
         		#"source": "apiai-weather-webhook-sample"
 	    	#}
-    joke = trt + prt + ', ' + poke + 
+    joke = trt + prt + ' , ' + poke + " 😂😂😂"
     speech = joke
 
     print("Response:")
