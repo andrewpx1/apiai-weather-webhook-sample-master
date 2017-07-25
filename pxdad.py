@@ -35,7 +35,7 @@ def makeWebhookResult(data):
     if jrm == "px"
 	joke = "Fuck You. Asshole. Px is your dad."
     else:
-	joke = zesult + "," + jrm
+	joke = zesult + ", " + jrm
 
 	# print(json.dumps(item, indent=4))
 	
