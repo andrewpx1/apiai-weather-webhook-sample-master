@@ -28,11 +28,13 @@ def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
     prt = parameters.get("any")
-    joke = prt + ", " + poke
-    if parameters.get("any") == "px":
-	speech = "FUCK YOU ASSHOLE. PX IS YOUR DAD."
+    oiu = "px"
+    if prt == oiu:
+	lpoke = "FUCK YOU ASSHOLE. PX IS YOUR DAD."
     else :
-	speech = joke
+	lpoke = prt + ", " + poke
+    joke =  lpoke
+    speech = joke
 
     print("Response:")
     print(speech)
