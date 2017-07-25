@@ -23,17 +23,12 @@ app = Flask(__name__)
 def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
+    prt = parameters.get("any")
     url = "http://api.yomomma.info/"
     gurl = urlopen(url).read()
     data = json.loads(gurl)	
-    res = makeWebhookResult(data)
-    return res
-	
-	
-def makeWebhookResult(data):
     poke = data.get('joke')
-    soke = parameters.get("any") + ", " + poke
-    joke = str(soke)
+    joke = prt + ", " + poke
 
     # print(json.dumps(item, indent=4))
 	
