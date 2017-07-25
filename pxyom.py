@@ -28,6 +28,7 @@ def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
     prt = parameters.get("any")
+    trt = parameters.get("px")
     #if prt == "px":
 		#return {
 			#"speech": "Fuck You Asshole. PX is your DAD",
@@ -36,7 +37,7 @@ def processRequest(req):
         # "contextOut": [],
         		#"source": "apiai-weather-webhook-sample"
 	    	#}
-    joke = prt + ', ' + poke
+    joke = trt + prt + ', ' + poke + 
     speech = joke
 
     print("Response:")
