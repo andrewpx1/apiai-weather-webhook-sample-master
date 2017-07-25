@@ -21,16 +21,16 @@ app = Flask(__name__)
 
 
 def processRequest(req):
+    url = "http://api.yomomma.info/"
+    gurl = urlopen(url).read()
+    data = json.loads(gurl)	
+    poke = data.get('joke')
     result = req.get("result")
     parameters = result.get("parameters")
     prt = parameters.get("any")
     if prt == "px":
 	joke = "FUCK YOU ASSHOLE. PX IS YOUR DAD."
     else:
-	url = "http://api.yomomma.info/"
-    	gurl = urlopen(url).read()
-    	data = json.loads(gurl)	
-    	poke = data.get('joke')
 	joke = prt + ", " + poke + " 😂😂"
 
     # print(json.dumps(item, indent=4))
