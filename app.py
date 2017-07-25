@@ -33,7 +33,7 @@ def webhook():
     print("Request:")
     print(json.dumps(req, indent=4))
     
-    if req.get("result").get("action") == "getjoke":
+    if req.get("result").get("action") == "chuckjoke":
         res = chucknorris.processRequest(req)
     elif req.get("result").get("action") == "yahooWeatherForecast":
         res = pxyahoo.processRequest(req)
