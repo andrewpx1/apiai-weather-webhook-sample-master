@@ -26,15 +26,15 @@ def processRequest(req):
 	prm = arameters.get("any1")
 	orm = arameters.get("any")
 	pata = json.loads(urllib.urlopen("http://api.giphy.com/v1/gifs/search?q=prm+orm&api_key=c1f3a904ca034a37b72912e95793b3da&limit=5").read())
-	result = pata.get('data')
-	ghgh = result[0]
-	pio = ghgh.get('images')
-	data = pio.get('downsized_large')
-	res = makeWebhookResult(data)
+	res = makeWebhookResult(pata)
 	return res
 	
 	
-def makeWebhookResult(data):
+def makeWebhookResult(pata):
+    result = pata.get('data')
+    ghgh = result[0]
+    pio = ghgh.get('images')
+    data = pio.get('downsized_large')
     joke = data.get('url')
 
     # print(json.dumps(item, indent=4))
