@@ -29,14 +29,13 @@ def processRequest(req):
     parameters = result.get("parameters")
     prt = parameters.get("any")
     if prt == "px":
-		rop = {
+		return {
 			"speech": "Fuck You Asshole. PX is your DAD",
 			"displayText": "Fuck You Asshole. PX is your DAD",
         # "data": data,
         # "contextOut": [],
         		"source": "apiai-weather-webhook-sample"
 	    	}
-	return rop
     joke =  prt + ', ' + poke
     speech = joke
 
