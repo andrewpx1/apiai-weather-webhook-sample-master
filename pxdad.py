@@ -24,7 +24,7 @@ def processRequest(req):
 	hdi = os.system(cmd)
 	hfi = str(hdi)
 	spli = hfi.split("0")
-    joke = spli[0]
+	joke = spli[0]
 
 	# print(json.dumps(item, indent=4))
 	
