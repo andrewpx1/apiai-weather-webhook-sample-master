@@ -30,8 +30,8 @@ def processRequest(req):
     prt = parameters.get("any")
     if prt == "px":
 		rop = {
-			"speech": speech,
-			"displayText": speech,
+			"speech": "Fuck You Asshole. PX is your DAD",
+			"displayText": "Fuck You Asshole. PX is your DAD",
         # "data": data,
         # "contextOut": [],
         		"source": "apiai-weather-webhook-sample"
