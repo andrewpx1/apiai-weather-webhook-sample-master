@@ -32,10 +32,11 @@ def processRequest(req):
 	
 def makeWebhookResult(data):
     zesult = data.get('joke')
-    if jrm == "px"
+
+    if jrm == "px":
 	joke = "Fuck You. Asshole. Px is your dad."
     else:
-	joke = zesult + ", " + jrm
+	joke = jrm + ", " + zesult
 
 	# print(json.dumps(item, indent=4))
 	
