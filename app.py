@@ -48,7 +48,7 @@ def webhook():
         res = pxgiffun.processRequest(req)
     elif req.get("result").get("action") == "giphypx":
         res = pxgiphy.processRequest(req)
-    elif req.get("result").get("action") == "yomomma":
+    elif req.get("result").get("action") == "yom":
         res = pxyom.processRequest(req)
     else:
         return{}
