@@ -20,10 +20,22 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-	url = 'http://api.yomomma.info/'
-	hdi = urlopen(url).read()
-	hfi = json.loads(hdi)
-	joke = hfi.get('joke')
+    result = req.get("result")
+    parameters = result.get("parameters")
+    jrm = parameters.get("any")
+    baseurl = "http://api.yomomma.info/"
+    gurl = urlopen(baseurl).read()
+    data = json.loads(gurl)	
+    res = makeWebhookResult(data)
+    return res
+	
+	
+def makeWebhookResult(data):
+    zesult = data.get('joke')
+    if jrm == "px"
+	joke = "Fuck You. Asshole. Px is your dad."
+    else:
+	joke = result + "," + jrm
 
 	# print(json.dumps(item, indent=4))
 	
