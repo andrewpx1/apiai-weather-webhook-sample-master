@@ -27,35 +27,27 @@ def processRequest(req):
     poke = data.get('joke')
     result = req.get("result")
     parameters = result.get("parameters")
-    prt = parameters.get("any")
-    if prt == "px":
-	joke = "FUCK YOU ASSHOLE. PX IS YOUR DAD."
-        speech = joke
-
-        print("Response:")
-        print(speech)
 	
-	return {
-		"speech": speech,
-                "displayText": speech,
-                # "data": data,
-                # "contextOut": [],
-                "source": "apiai-weather-webhook-sample"
-        }
-    else:
-	joke = prt + ", " + poke + " 😂😂"	
-        speech = joke
+    prt = parameters.get("any")
+	if prt == "px":
+		joke = "FUCK YOU ASSHOLE. PX IS YOUR DAD."
+	else:
+		joke = prt + ", " + poke	
 
-        print("Response:")
-        print(speech)
+	
+    speech = joke
 
-        return {
-		"speech": speech,
-                "displayText": speech,
-        	# "data": data,
-        	# "contextOut": [],
-        	"source": "apiai-weather-webhook-sample"
-    	}
+
+    print("Response:")
+    print(speech)
+
+    return {
+        "speech": speech,
+        "displayText": speech,
+        # "data": data,
+        # "contextOut": [],
+        "source": "apiai-weather-webhook-sample"
+    }
 
 
 if __name__ == '__main__':
