@@ -20,11 +20,10 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-	cmd = 'curl https://icanhazdadjoke.com/'
-	hdi = os.system(cmd)
-	hfi = str(hdi)
-	spli = hfi.split("0")
-	joke = spli[0]
+	url = 'http://api.yomomma.info/'
+	hdi = urlopen(url).read()
+	hfi = json.loads(hdi)
+	joke = hfi.get('joke')
 
 	# print(json.dumps(item, indent=4))
 	
