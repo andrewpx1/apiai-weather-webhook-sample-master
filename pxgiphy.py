@@ -21,8 +21,8 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-    desult = req.get("result")
-    parameters = desult.get("parameters")
+    result = req.get("result")
+    parameters = result.get("parameters")
     prm = parameters.get("any1")
     orm = parameters.get("any")
     combo = prm + '+' + orm
@@ -35,11 +35,11 @@ def processRequest(req):
 	
 	
 def makeWebhookResult(data):
-    result = data.get('data')
-    ghgh = result[0]
+    zesult = data.get('data')
+    ghgh = zesult[0]
     pio = ghgh.get('images')
-    data = pio.get('downsized_large')
-    joke = data.get('url')
+    pata = pio.get('downsized_large')
+    joke = pata.get('url')
 
     # print(json.dumps(item, indent=4))
 	
