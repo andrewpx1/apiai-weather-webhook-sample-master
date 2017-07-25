@@ -28,7 +28,12 @@ def processRequest(req):
     gurl = urlopen(url).read()
     data = json.loads(gurl)	
     poke = data.get('joke')
-    joke = prt + ", " + poke
+    toke = prt + ", " + poke + " 😂😂"
+    
+    if prt == "px":
+		joke = "FUCK YOU ASSHOLE. PX IS YOUR DAD."
+    else:
+	joke = toke
 
     # print(json.dumps(item, indent=4))
 	
