@@ -23,9 +23,11 @@ app = Flask(__name__)
 def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    prm = parameters.get("any1")
-    orm = parameters.get("any")
-    combo = prm + '+' + orm
+    irm = parameters.get("any1")
+    jrm = parameters.get("any")
+    krm = parameters.get("any2")
+    lrm = parameters.get("any3")	
+    combo = irm + '+' + jrm + '+' + krm + '+' + lrm
     baseurl = "http://api.giphy.com/v1/gifs/search?q="
     url = baseurl + combo + '&api_key=c1f3a904ca034a37b72912e95793b3da&limit=5"'
     gurl = urlopen(url).read()
