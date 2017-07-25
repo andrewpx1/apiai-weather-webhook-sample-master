@@ -7,6 +7,7 @@ install_aliases()
 from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
+from os.path import splitext
 
 import json
 import os
@@ -20,8 +21,9 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-    result = req.get("result")
-    parameters = result.get("parameters")
+ #   result = req.get("result")
+ #   parameters = result.get("parameters")
+ #   jrm = parameters.get("any")
     url = "http://api.yomomma.info/"
     gurl = urlopen(url).read()
     data = json.loads(gurl)	
@@ -30,13 +32,7 @@ def processRequest(req):
 	
 	
 def makeWebhookResult(data):
-    zesult = data.get('joke')
-    jrm = parameters.get("any")
-
-    if parameters.get("any") == "px":
-	joke = "Fuck You Asshole. Px is your dad."
-    else:
-	joke = jrm + ", " + zesult
+    joke = data.get('joke')
 
 	# print(json.dumps(item, indent=4))
 	
