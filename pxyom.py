@@ -29,8 +29,8 @@ def processRequest(req):
     parameters = result.get("parameters")
     prt = parameters.get("any")
     joke = prt + ", " + poke
-    if prt == "px":
-		speech = "FUCK YOU ASSHOLE. PX IS YOUR DAD."
+    if parameters.get("any") == "px":
+	speech = "FUCK YOU ASSHOLE. PX IS YOUR DAD."
     else :
 	speech = joke
 
