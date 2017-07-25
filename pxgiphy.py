@@ -21,17 +21,21 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-	desult = req.get("result")
-	arameters = desult.get("parameters")
-	prm = arameters.get("any1")
-	orm = arameters.get("any")
-	pata = json.loads(urllib.urlopen("http://api.giphy.com/v1/gifs/search?q=prm+orm&api_key=c1f3a904ca034a37b72912e95793b3da&limit=5").read())
-	res = makeWebhookResult(pata)
-	return res
+    desult = req.get("result")
+    parameters = desult.get("parameters")
+    prm = parameters.get("any1")
+    orm = parameters.get("any")
+    combo = prm + '+' + orm
+    baseurl = "http://api.giphy.com/v1/gifs/search?q="
+    url = baseurl + combo + '&api_key=c1f3a904ca034a37b72912e95793b3da&limit=5"'
+    gurl = urlopen(url).read()
+    data = json.loads(gurl)	
+    res = makeWebhookResult(data)
+    return res
 	
 	
-def makeWebhookResult(pata):
-    result = pata.get('data')
+def makeWebhookResult(data):
+    result = data.get('data')
     ghgh = result[0]
     pio = ghgh.get('images')
     data = pio.get('downsized_large')
