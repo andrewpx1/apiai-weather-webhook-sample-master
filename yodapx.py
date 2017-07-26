@@ -11,7 +11,6 @@ from os.path import splitext
 
 import json
 import os
-import requests
 
 from flask import Flask
 from flask import request
@@ -22,15 +21,24 @@ app = Flask(__name__)
 
 
 def processRequest(req):
+	result = req.get("result")
+	parameters = result.get("parameters")
+	prt = parameters.get("any")	
 	headers = {
 		"X-Mashape-Key": "axWE0J6Hj5mshIyeWhO19vjpSYyxp1k53ohjsnr3rxp4xsIj8I",
 		"Accept": "text/plain"
 	}
-	r = requests.get('https://yoda.p.mashape.com/yoda?sentence=wait+for+me', headers=headers)
-	joke = r.text
+	baseurl = "https://yoda.p.mashape.com/yoda?"
+	mydict = {'sentence': prt}
+	put = urlencode(mydict)
+	url = baseurl + put
+	r = urllib.request.Request(url, headers=headers)
+	hj = urllib.request.urlopen(r)
+	gh = hj.read()
+	joke = gh.decode()
 	speech = joke
 	
-	print("Response:")
+    print("Response:")
     print(speech)
 
     return {
