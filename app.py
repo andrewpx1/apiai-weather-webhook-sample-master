@@ -22,6 +22,7 @@ import pxeliz
 import yodapx
 import pxdad
 import pxdog
+import lovepx
 
 from flask import Flask
 from flask import request
@@ -62,6 +63,8 @@ def webhook():
         res = pxdad.processRequest(req)
     elif req.get("result").get("action") == "dogpx":
         res = pxdog.processRequest(req)
+    elif req.get("result").get("action") == "pxluv":
+        res = lovepx.processRequest(req)
     else:
         return{}
     
