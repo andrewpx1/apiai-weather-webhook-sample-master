@@ -42,7 +42,7 @@ def processRequest(req):
     toke = json.loads(poke)
     perc = toke.get('percentage')
     resl = toke.get("result")
-    joke = prt + ' & ' + yurt + '\nYour Love Percentage is = ' + perc + ' % \nSo, You ' + resl
+    joke = prt + ' ❤️ ' + yurt + ' = ' + perc + ' % \nSo, ' + resl
     speech = joke
 	
     print("Response:")
