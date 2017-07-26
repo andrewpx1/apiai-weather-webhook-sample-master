@@ -11,6 +11,7 @@ from os.path import splitext
 
 import json
 import os
+import requests
 
 from flask import Flask
 from flask import request
@@ -21,27 +22,27 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-	result = req.get("result")
-	parameters = result.get("parameters")
-	prt = parameters.get("any")
-	yurt = parameters.get("any1")	
+    result = req.get("result")
+    parameters = result.get("parameters")
+    prt = parameters.get("any")
+    yurt = parameters.get("any1")	
     baseurl = "https://love-calculator.p.mashape.com/getPercentage?"
     mydict1 = {'fname': prt}
-	mydict2 = {'sname': yurt}
-	put1 = urlencode(mydict1)
-	put2 = urlencode(mydict2)
-	url = baseurl + put1 + '&' + put2
-	headers = {
+    mydict2 = {'sname': yurt}
+    put1 = urlencode(mydict1)
+    put2 = urlencode(mydict2)
+    url = baseurl + put1 + '&' + put2
+    headers = {
 	    "X-Mashape-Key": "axWE0J6Hj5mshIyeWhO19vjpSYyxp1k53ohjsnr3rxp4xsIj8I",
 	    'Accept': 'application/json'
-	}
-	r = requests.get(url, headers=headers)
-	gh = r.content
-	poke = gh.decode()
-	toke = json.loads(poke)
-	perc = toke.get('percentage')
-	resl = toke.get("result")
-	joke = prt + ' & ' + yurt + '\nYour Love Percentage is = ' + perc + ' % \nSo, You ' + resl
+    }
+    r = requests.get(url, headers=headers)
+    gh = r.content
+    poke = gh.decode()
+    toke = json.loads(poke)
+    perc = toke.get('percentage')
+    resl = toke.get("result")
+    joke = prt + ' & ' + yurt + '\nYour Love Percentage is = ' + perc + ' % \nSo, You ' + resl
     speech = joke
 	
     print("Response:")
