@@ -55,7 +55,7 @@ def webhook():
     elif req.get("result").get("action") == "elizpx":
         res = pxeliz.processRequest(req)
     elif req.get("result").get("action") == "pxyoda":
-        res = pxeliz.processRequest(req)      
+        res = yodapx.processRequest(req)
     else:
         return{}
     
