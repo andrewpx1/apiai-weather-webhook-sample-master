@@ -22,15 +22,15 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-	url = "https://icanhazdadjoke.com/"
-	headers = {
-	'Accept': 'application/json',
-	}
-	resp = requests.get(url, headers=headers)
-	gh = resp.content
-	ghj = gh.decode()
-	drt = json.loads(ghj)
-	joke = drt.get('joke')
+    url = "https://icanhazdadjoke.com/"
+    headers = {
+	    'Accept': 'application/json',
+    }
+    resp = requests.get(url, headers=headers)
+    gh = resp.content
+    ghj = gh.decode()
+    drt = json.loads(ghj)
+    joke = drt.get('joke')
     speech = joke
 
     print("Response:")
