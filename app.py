@@ -52,7 +52,7 @@ def webhook():
     elif req.get("result").get("action") == "yom":
         res = pxyom.processRequest(req)
     elif req.get("result").get("action") == "elizpx":
-        res = pxyom.processRequest(req) 
+        res = pxeliz.processRequest(req) 
     else:
         return{}
     
