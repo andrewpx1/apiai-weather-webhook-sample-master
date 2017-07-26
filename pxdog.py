@@ -22,21 +22,20 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-	url = "https://icanhazdadjoke.com/"
-	headers = {
-	'Accept': 'application/json',
-	}
-	resp = requests.get(url, headers=headers)
-	gh = resp.content
-	result = gh.decode()
-	data = json.loads(result)
+    url = "http://thedogapi.co.uk/api/v1/dog"
+    headers = {
+	    'Accept': 'application/json',
+    }
+    resp = requests.get(url, headers=headers)
+    gh = resp.content
+    result = gh.decode()
+    data = json.loads(result)
     res = makeWebhookResult(data)
     return res
 
 
-
 def makeWebhookResult(data):
-	dft = data.get('data')
+    dft = data.get('data')
     joke = dft[0].get('url')
 
     # print(json.dumps(item, indent=4))
