@@ -58,7 +58,7 @@ def webhook():
     elif req.get("result").get("action") == "pxyoda":
         res = yodapx.processRequest(req)
     elif req.get("result").get("action") == "dadpx":
-        res = pxdad.processRequest(req)        
+        res = pxdad.processRequest(req)
     else:
         return{}
     
