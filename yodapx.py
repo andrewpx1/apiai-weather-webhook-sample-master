@@ -21,22 +21,22 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-	result = req.get("result")
-	parameters = result.get("parameters")
-	prt = parameters.get("any")	
-	headers = {
-		"X-Mashape-Key": "axWE0J6Hj5mshIyeWhO19vjpSYyxp1k53ohjsnr3rxp4xsIj8I",
-		"Accept": "text/plain"
-	}
-	baseurl = "https://yoda.p.mashape.com/yoda?"
-	mydict = {'sentence': prt}
-	put = urlencode(mydict)
-	url = baseurl + put
-	r = urllib.request.Request(url, headers=headers)
-	hj = urllib.request.urlopen(r)
-	gh = hj.read()
-	joke = gh.decode()
-	speech = joke
+    result = req.get("result")
+    parameters = result.get("parameters")
+    prt = parameters.get("any")	
+    baseurl = "https://yoda.p.mashape.com/yoda?"
+    mydict = {'sentence': prt}
+    put = urlencode(mydict)
+    url = baseurl + put
+    headers = {
+	    "X-Mashape-Key": "axWE0J6Hj5mshIyeWhO19vjpSYyxp1k53ohjsnr3rxp4xsIj8I",
+	    "Accept": "text/plain"
+    }	
+    r = Request(url, headers=headers)
+    hj = urlopen(r)
+    gh = hj.read()
+    joke = gh.decode()
+    speech = joke
 	
     print("Response:")
     print(speech)
