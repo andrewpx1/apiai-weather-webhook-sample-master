@@ -18,6 +18,7 @@ import pxfunpic
 import pxgiffun
 import pxgiphy
 import pxyom
+import pxeliz
 
 from flask import Flask
 from flask import request
@@ -50,6 +51,8 @@ def webhook():
         res = pxgiphy.processRequest(req)
     elif req.get("result").get("action") == "yom":
         res = pxyom.processRequest(req)
+    elif req.get("result").get("action") == "elizpx":
+        res = pxyom.processRequest(req) 
     else:
         return{}
     
