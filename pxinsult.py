@@ -21,9 +21,31 @@ from flask import make_response
 app = Flask(__name__)
 
 
+def processRequest(req):
+    dt = datetime.now()
+    miu = dt.second
+    result = req.get("result")
+    parameters = result.get("parameters")
+    prt = parameters.get("any")
+    trt = parameters.get("px")
+    poke = "You " + RandomNeutral() + RandomEnd() + RandomFemale() + RandomStupid() + RandomSkinny() +  RandomDog() + RandomIntenseEnd() + RandomFat() + RandomMale()
+    joke = trt + prt + ' , ' + poke + " 😂😂😂"
+    speech = joke
+
+    print("Response:")
+    print(speech)
+
+    return {
+        "speech": speech,
+        "displayText": speech,
+        # "data": data,
+        # "contextOut": [],
+        "source": "apiai-weather-webhook-sample"
+    }
+
+seconds = miu
+
 def RandomMale():
-	dt = datetime.now()
-	seconds = dt.second
 	if (seconds < 6):
 		return "dick "
 	elif (seconds < 11):
@@ -53,8 +75,6 @@ def RandomMale():
 
 		
 def RandomFemale():
-	dt = datetime.now()
-	seconds = dt.second
 	if (seconds < 6):
 		return "hag "
 	elif (seconds < 11):
@@ -84,8 +104,6 @@ def RandomFemale():
 
 		
 def RandomNeutral():
-	dt = datetime.now()
-	seconds = dt.second
 	if (seconds < 6):
 		return "pukebreath "
 	elif (seconds < 11):
@@ -115,8 +133,6 @@ def RandomNeutral():
 
 		
 def RandomStupid():
-	dt = datetime.now()
-	seconds = dt.second
 	if (seconds < 4):
 		return "dumbshit "
 	elif (seconds < 8):
@@ -148,8 +164,6 @@ def RandomStupid():
 		
 		
 def RandomFat():
-	dt = datetime.now()
-	seconds = dt.second
 	if (seconds < 5):
 		return "fat-ass "
 	elif (seconds < 11):
@@ -177,8 +191,6 @@ def RandomFat():
 
 		
 def RandomSkinny():
-	dt = datetime.now()
-	seconds = dt.second
 	if (seconds < 12):
 		return "pencil-necked "
 	elif (seconds < 22):
@@ -196,8 +208,6 @@ def RandomSkinny():
 
 		
 def RandomDog():
-	dt = datetime.now()
-	seconds = dt.second
 	if (seconds < 8):
 		return "butt-ugly "
 	elif (seconds < 15):
@@ -219,8 +229,6 @@ def RandomDog():
 
 		
 def RandomIntenseEnd():
-	dt = datetime.now()
-	seconds = dt.second
 	if (seconds < 15):
 		return "smelly-crotched "
 	elif (seconds < 23):
@@ -238,8 +246,6 @@ def RandomIntenseEnd():
 
 	
 def RandomEnd():
-	dt = datetime.now()
-	seconds = dt.second
 	if (seconds < 15):
 		return "turd-like "
 	elif (seconds < 23):
@@ -254,27 +260,6 @@ def RandomEnd():
 		return "fart-sniffing "	
 	else:
 		return " "
-
-
-def processRequest(req):
-    result = req.get("result")
-    parameters = result.get("parameters")
-    prt = parameters.get("any")
-    trt = parameters.get("px")
-    poke = "You " + RandomNeutral() + RandomEnd() + RandomFemale() + RandomStupid() + RandomSkinny() +  RandomDog() + RandomIntenseEnd() + RandomFat() + RandomMale()
-    joke = trt + prt + ' , ' + poke + " 😂😂😂"
-    speech = joke
-
-    print("Response:")
-    print(speech)
-
-    return {
-        "speech": speech,
-        "displayText": speech,
-        # "data": data,
-        # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
-    }
 
 
 if __name__ == '__main__':
