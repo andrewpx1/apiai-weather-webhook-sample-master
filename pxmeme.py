@@ -56,19 +56,19 @@ def makeWebhookResult(data):
     print(speech)
 
 
-    kik_message1 = [
+    kik_message = [
             {
                 "type": "picture",
                 "picUrl": speech
             }
     ]
 
-    kik_message2 = [
-            {
-                "type": "video",
-                "videoUrl": speech
-            }
-    ]
+    #kik_message2 = [
+            #{
+                #"type": "video",
+                #"videoUrl": speech
+            #}
+    #]
 
     print(json.dumps(kik_message1))
     print(json.dumps(kik_message2))
@@ -76,7 +76,7 @@ def makeWebhookResult(data):
     return {
         "speech": speech,
         "displayText": speech,
-        "data": {"kik": kik_message1 + kik_message2},    
+        "data": {"kik": kik_message},    
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
