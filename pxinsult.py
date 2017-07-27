@@ -20,9 +20,6 @@ from flask import make_response
 # Flask app should start in global layout
 app = Flask(__name__)
 
-dt = datetime.now()
-seconds = dt.second
-
 
 def RandomMale():
 	if (seconds < 6):
@@ -242,6 +239,8 @@ def RandomEnd():
 
 
 def processRequest(req):
+    dt = datetime.now()
+    seconds = dt.second
     result = req.get("result")
     parameters = result.get("parameters")
     prt = parameters.get("any")
