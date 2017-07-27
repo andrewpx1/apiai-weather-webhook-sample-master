@@ -56,18 +56,20 @@ def RandomMale(seconds):
 		return "dickhead "
 	elif (seconds < 31):
 		return "penis "
-	elif (seconds < 36):
+	elif (seconds < 35):
 		return "ape "
-	elif (seconds < 41):
+	elif (seconds < 40):
 		return "weiner "
-	elif (seconds < 46):
+	elif (seconds < 44):
 		return "pecker "
-	elif (seconds < 51):
+	elif (seconds < 48):
 		return "prick "
-	elif (seconds < 56):
+	elif (seconds < 52):
 		return "jerk-off "
-	elif (seconds < 61):
+	elif (seconds < 56):
 		return "schmuck "
+	elif (seconds < 61):
+		return "arsehole collector "
 	else:
 		return " "
 
@@ -189,18 +191,36 @@ def RandomFat(seconds):
 
 		
 def RandomSkinny(seconds):
-	if (seconds < 12):
+	if (seconds < 4):
 		return "pencil-necked "
-	elif (seconds < 22):
+	elif (seconds < 8):
 		return "emaciated "
-	elif (seconds < 30):
+	elif (seconds < 12):
 		return "anorexic "
-	elif (seconds < 43):
+	elif (seconds < 16):
 		return "puny "
-	elif (seconds < 52):
+	elif (seconds < 20):
 		return "bony "
-	elif (seconds < 61):
+	elif (seconds < 24):
 		return "scrawny-assed "
+	elif (seconds < 28):
+		return "cum graduated "
+	elif (seconds < 32):
+		return "frigging gaylord extracting "
+	elif (seconds < 36):
+		return "cross-eyed asswad twat experimented "
+	elif (seconds < 40):
+		return "lonely sack graduated "
+	elif (seconds < 44):
+		return "dumb shitfaced "
+	elif (seconds < 48):
+		return "shitting clusterfuck "
+	elif (seconds < 52):
+		return "flip-flopping skinny dick  "
+	elif (seconds < 56):
+		return "dried out tea-bag licking "
+	elif (seconds < 61):
+		return "vomit bollock bony "
 	else:
 		return " "
 
@@ -227,35 +247,77 @@ def RandomDog(seconds):
 
 		
 def RandomIntenseEnd(seconds):
-	if (seconds < 15):
+	if (seconds < 4):
 		return "smelly-crotched "
-	elif (seconds < 23):
+	elif (seconds < 8):
 		return "hog-humping "
-	elif (seconds < 29):
+	elif (seconds < 12):
 		return "rectum-sniffing "
-	elif (seconds < 41):
+	elif (seconds < 16):
 		return "smegging "
-	elif (seconds < 52):
+	elif (seconds < 20):
 		return "butt-licking "
+	elif (seconds < 24):
+		return "badly drawn nut fondling "
+	elif (seconds < 28):
+		return "glorious cockstorm foot packing "
+	elif (seconds < 32):
+		return "mental erection sniffing "
+	elif (seconds < 36):
+		return "hard-rubbing clotpole wanking "
+	elif (seconds < 40):
+		return "bukake licking "
+	elif (seconds < 44):
+		return "twittering puke handler "
+	elif (seconds < 48):
+		return "overrated scrotum bucket detecting "
+	elif (seconds < 52):
+		return "stale bunghole sniffing "
+	elif (seconds < 56):
+		return "scurvy looking "
+	elif (seconds < 58):
+		return "nipple spunk-bubble "
 	elif (seconds < 61):
-		return "bum-licking "
+		return "hairy chesticle licking "
 	else:
 		return " "
 
 	
 def RandomEnd(seconds):
-	if (seconds < 15):
+	if (seconds < 3):
 		return "turd-like "
-	elif (seconds < 23):
+	elif (seconds < 6):
 		return "crud-infested "
-	elif (seconds < 29):
+	elif (seconds < 9):
 		return "lame "
-	elif (seconds < 41):
+	elif (seconds < 12):
 		return "vermin-ridden "
-	elif (seconds < 52):
+	elif (seconds < 15):
 		return "pus-sucking "
+	elif (seconds < 16):
+		return "fart-sniffing "
+	elif (seconds < 19):
+		return "indeterminable semen goatse jacker "
+	elif (seconds < 22):
+		return "offspring of a motherless goat "
+	elif (seconds < 25):
+		return "Harambe fucked "
+	elif (seconds < 28):
+		return "anus raped "
+	elif (seconds < 32):
+		return "undead fuck piped "
+	elif (seconds < 40):
+		return "annoying arse shiner, "
+	elif (seconds < 44):
+		return "failed slut wagon dictator, "
+	elif (seconds < 48):
+		return "colon bender, "
+	elif (seconds < 52):
+		return "poop balls, "
+	elif (seconds < 56):
+		return "instant tit testicle basher, "
 	elif (seconds < 61):
-		return "fart-sniffing "	
+		return "maiming cock jockey, "
 	else:
 		return " "
 
