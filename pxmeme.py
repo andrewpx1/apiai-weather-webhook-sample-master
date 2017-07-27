@@ -70,8 +70,8 @@ def makeWebhookResult(data):
             #}
     #]
 
-    print(json.dumps(kik_message1))
-    print(json.dumps(kik_message2))
+    print(json.dumps(kik_message))
+    #print(json.dumps(kik_message2))
 
     return {
         "speech": speech,
