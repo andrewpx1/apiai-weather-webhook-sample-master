@@ -30,7 +30,7 @@ def processRequest(req):
     parameters = result.get("parameters")
     prt = parameters.get("any")
     trt = parameters.get("px")
-    poke = "You " + RandomNeutral() + RandomEnd() + RandomFemale() + RandomStupid() + RandomSkinny() +  RandomDog() + RandomIntenseEnd() + RandomFat() +     RandomMale()
+    poke = "You " + RandomNeutral() + RandomEnd() + RandomFemale() + RandomStupid() + RandomSkinny() +  RandomDog() + RandomIntenseEnd() + RandomFat() + RandomMale()
     joke = trt + prt + ' , ' + poke + " 😂😂😂"
     speech = joke
 
@@ -245,6 +245,7 @@ def RandomIntenseEnd():
 	else:
 		return ""
 
+	
 def RandomEnd():
 	if (seconds < 15):
 		return "turd-like "
