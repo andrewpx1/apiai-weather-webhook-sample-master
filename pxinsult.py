@@ -8,7 +8,7 @@ from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
 from os.path import splitext
-from datetime import datetime
+from random import randint
 
 import json
 import os
@@ -22,13 +22,12 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-    dt = datetime.now()
-    miu = dt.second
+    seconds = randint(0, 60)
     result = req.get("result")
     parameters = result.get("parameters")
     prt = parameters.get("any")
     trt = parameters.get("px")
-    poke = "You " + RandomNeutral() + RandomEnd() + RandomFemale() + RandomStupid() + RandomSkinny() +  RandomDog() + RandomIntenseEnd() + RandomFat() + RandomMale()
+    poke = "You " + RandomNeutral(seconds) + RandomEnd(seconds) + RandomFemale(seconds) + RandomStupid(seconds) + RandomSkinny(seconds) +  RandomDog(seconds) + RandomIntenseEnd(seconds) + RandomFat(seconds) + RandomMale(seconds)
     joke = trt + prt + ' , ' + poke + " 😂😂😂"
     speech = joke
 
@@ -43,9 +42,8 @@ def processRequest(req):
         "source": "apiai-weather-webhook-sample"
     }
 
-seconds = miu
 
-def RandomMale():
+def RandomMale(seconds):
 	if (seconds < 6):
 		return "dick "
 	elif (seconds < 11):
@@ -74,7 +72,7 @@ def RandomMale():
 		return " "
 
 		
-def RandomFemale():
+def RandomFemale(seconds):
 	if (seconds < 6):
 		return "hag "
 	elif (seconds < 11):
@@ -103,7 +101,7 @@ def RandomFemale():
 		return " "
 
 		
-def RandomNeutral():
+def RandomNeutral(seconds):
 	if (seconds < 6):
 		return "pukebreath "
 	elif (seconds < 11):
@@ -132,7 +130,7 @@ def RandomNeutral():
 		return " "
 
 		
-def RandomStupid():
+def RandomStupid(seconds):
 	if (seconds < 4):
 		return "dumbshit "
 	elif (seconds < 8):
@@ -163,7 +161,7 @@ def RandomStupid():
 		return " "
 		
 		
-def RandomFat():
+def RandomFat(seconds):
 	if (seconds < 5):
 		return "fat-ass "
 	elif (seconds < 11):
@@ -190,7 +188,7 @@ def RandomFat():
 		return " "
 
 		
-def RandomSkinny():
+def RandomSkinny(seconds):
 	if (seconds < 12):
 		return "pencil-necked "
 	elif (seconds < 22):
@@ -207,7 +205,7 @@ def RandomSkinny():
 		return " "
 
 		
-def RandomDog():
+def RandomDog(seconds):
 	if (seconds < 8):
 		return "butt-ugly "
 	elif (seconds < 15):
@@ -228,7 +226,7 @@ def RandomDog():
 		return " "
 
 		
-def RandomIntenseEnd():
+def RandomIntenseEnd(seconds):
 	if (seconds < 15):
 		return "smelly-crotched "
 	elif (seconds < 23):
@@ -245,7 +243,7 @@ def RandomIntenseEnd():
 		return " "
 
 	
-def RandomEnd():
+def RandomEnd(seconds):
 	if (seconds < 15):
 		return "turd-like "
 	elif (seconds < 23):
