@@ -28,9 +28,8 @@ def processRequest(req):
     prt = parameters.get("Zodiac")
     baseurl = "https://new.theastrologer.com/"
     url = baseurl + prt + '/'
-    headers = {}
-    hj = requests.get(url, headers=headers)
-    gh = hj.content
+    hj = urlopen(url)
+    gh = hj.read()
     cbt = gh.decode()
     dbt = '<p>(.+?)</p>'
     ebt = re.findall(dbt,cbt)
@@ -40,7 +39,7 @@ def processRequest(req):
     u1 = str(bbt[2])
     u2 = u1.replace("<sup>", "")
     u3 = u2.replace("</sup>", "")
-    joke = 'Zodiac Sign : ' + prt + '\nDate : ' + u3 + '\nResult : ' + xbt 
+    joke = 'Zodiac Sign : ' + prt + '\nDate : ' + u3 + '\nResult :\n ' + xbt
 
     # print(json.dumps(item, indent=4))
 	
@@ -49,7 +48,6 @@ def processRequest(req):
     print("Response:")
     print(speech)
 
-
     return {
         "speech": speech,
         "displayText": speech,
@@ -57,7 +55,6 @@ def processRequest(req):
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
-
 
 
 if __name__ == '__main__':
