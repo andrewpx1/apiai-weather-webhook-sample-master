@@ -11,6 +11,7 @@ from os.path import splitext
 
 import json
 import os
+import requests
 
 from flask import Flask
 from flask import request
@@ -32,10 +33,9 @@ def processRequest(req):
 	    "X-Mashape-Key": "axWE0J6Hj5mshIyeWhO19vjpSYyxp1k53ohjsnr3rxp4xsIj8I",
 	    "Accept": "text/plain"
     }	
-    r = Request(url, headers=headers)
-    hj = urlopen(r)
-    gh = hj.read()
-    joke = gh.decode()
+    rui = requests.get(url, headers=headers)
+    hj = rui.content
+    joke = hj.decode()
     speech = joke
 	
     print("Response:")
