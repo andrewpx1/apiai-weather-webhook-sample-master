@@ -34,13 +34,13 @@ def processRequest(req):
     cbt = gh.decode()
     dbt = '<p>(.+?)</p>'
     ebt = re.findall(dbt,cbt)
-    fbt = ebt[0]
+    xbt = ebt[0]
     aat = '<div class="daily-horoscope-date">(.+?)</div>'
     bbt = re.findall(aat,cbt)
     u1 = str(bbt[2])
     u2 = u1.replace("<sup>", "")
     u3 = u2.replace("</sup>", "")
-    joke = 'Zodiac Sign : ' + prt + '\nDate : ' + u3 + '\nResult :\' + fbt
+    joke = 'Zodiac Sign : ' + prt + '\nDate : ' + u3 + '\nResult : ' + xbt 
 
     # print(json.dumps(item, indent=4))
 	
