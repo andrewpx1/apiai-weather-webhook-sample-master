@@ -23,24 +23,24 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-	result = req.get("result")
-	parameters = result.get("parameters")
-	prt = parameters.get("Zodiac")
-	baseurl = "https://new.theastrologer.com/"
-	url = baseurl + prt + '/'
-	headers = {}
-	hj = requests.get(url, headers=headers)
-	gh = hj.content
-	cbt = gh.decode()
-	dbt = '<p>(.+?)</p>'
-	ebt = re.findall(dbt,cbt)
-	fbt = ebt[0]
-	aat = '<div class="daily-horoscope-date">(.+?)</div>'
-	bbt = re.findall(aat,cbt)
-	u1 = str(bbt[2])
-	u2 = u1.replace("<sup>", "")
-	u3 = u2.replace("</sup>", "")
-	joke = 'Zodiac Sign : ' + prt + '\nDate : ' + u3 + '\nResult :\' + fbt
+    result = req.get("result")
+    parameters = result.get("parameters")
+    prt = parameters.get("Zodiac")
+    baseurl = "https://new.theastrologer.com/"
+    url = baseurl + prt + '/'
+    headers = {}
+    hj = requests.get(url, headers=headers)
+    gh = hj.content
+    cbt = gh.decode()
+    dbt = '<p>(.+?)</p>'
+    ebt = re.findall(dbt,cbt)
+    fbt = ebt[0]
+    aat = '<div class="daily-horoscope-date">(.+?)</div>'
+    bbt = re.findall(aat,cbt)
+    u1 = str(bbt[2])
+    u2 = u1.replace("<sup>", "")
+    u3 = u2.replace("</sup>", "")
+    joke = 'Zodiac Sign : ' + prt + '\nDate : ' + u3 + '\nResult :\' + fbt
 
     # print(json.dumps(item, indent=4))
 	
