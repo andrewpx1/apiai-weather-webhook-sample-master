@@ -28,8 +28,8 @@ def processRequest(req):
     baseurl = "http://www.memes.com/search/"
     mydict = {'': prt}
     put = urlencode(mydict)
-    num1 = randint(11, 12) - 10
-    num2 = randint(0, 8)
+    num1 = 1
+    num2 = randint(0, 4)
     url = baseurl + put + '/' + str(num1)
     hj = urlopen(url)
     gh = hj.read()
