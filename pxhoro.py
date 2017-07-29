@@ -71,6 +71,8 @@ def zodsign(prt):
         return "♍ "
     elif (prt == "Libra"):
         return "♎ "
+     elif (prt == "Scorpio"):
+        return "♏ "
     elif (prt == "Sagittarius"):
         return "♐ "
     elif (prt == "Capricorn"):
@@ -93,6 +95,8 @@ def zodsign(prt):
         return "♍ "
     elif (prt == "libra"):
         return "♎ "
+    elif (prt == "Scorpio"):
+        return "♏ "
     elif (prt == "sagittarius"):
         return "♐ "
     elif (prt == "capricorn"):
