@@ -26,6 +26,7 @@ import lovepx
 import pxinsult
 import pxmeme
 import pxhoro
+import imgurpx
 
 from flask import Flask
 from flask import request
@@ -74,6 +75,8 @@ def webhook():
         res = pxmeme.processRequest(req)
     elif req.get("result").get("action") == "horopx":
         res = pxhoro.processRequest(req)
+    elif req.get("result").get("action") == "pximgur":
+        res = imgurpx.processRequest(req)
     else:
         return{}
     
