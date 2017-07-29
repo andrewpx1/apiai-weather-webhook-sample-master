@@ -25,35 +25,35 @@ app = Flask(__name__)
 
 
 def processRequest(req):
-	result = req.get("result")
-	parameters = result.get("parameters")
-	prt = parameters.get("any")
-	baseurl = "http://imgur.com/search/score?"
-	mydict = {'q': prt}
-	put = urlencode(mydict)
-	url = baseurl + put
-	headers = {}
-	a = requests.get(url, headers=headers)
-	b = a.content
-	c = b.decode()
-	d = '<span class="sorting-text-align">Found <i>(.+?)<'
-	e = findall(d,c)
-	g = int(e[0])
-	h1 = g * 0.5
-	h2i = int(h1) + 1
-	h3 = randint(1, h2i)
-	h41 = 'href="/gallery/(.+?)"'
-	h51 = findall(h41,c)
-	h61 = h51[h3]
-	nurl = 'http://imgur.com/gallery/' + h61
-	a10 = requests.get(nurl, headers=headers)
-	h7 = a10.content
-	hdec1 = h7.decode()
-	h711 ='src="//i.imgur.com/(.+?)"'
-	h721 = findall(h711,hdec1)
-	h73 = h721[0]
-	h74 = 'http://i.imgur.com/' + h73
-	h75 = '{"file":"' + h74 + '"}'
+    result = req.get("result")
+    parameters = result.get("parameters")
+    prt = parameters.get("any")
+    baseurl = "http://imgur.com/search/score?"
+    mydict = {'q': prt}
+    put = urlencode(mydict)
+    url = baseurl + put
+    headers = {}
+    a = requests.get(url, headers=headers)
+    b = a.content
+    c = b.decode()
+    d = '<span class="sorting-text-align">Found <i>(.+?)<'
+    e = findall(d,c)
+    g = int(e[0])
+    h1 = g * 0.5
+    h2i = int(h1) + 1
+    h3 = randint(1, h2i)
+    h41 = 'href="/gallery/(.+?)"'
+    h51 = findall(h41,c)
+    h61 = h51[h3]
+    nurl = 'http://imgur.com/gallery/' + h61
+    a10 = requests.get(nurl, headers=headers)
+    h7 = a10.content
+    hdec1 = h7.decode()
+    h711 ='src="//i.imgur.com/(.+?)"'
+    h721 = findall(h711,hdec1)
+    h73 = h721[0]
+    h74 = 'http://i.imgur.com/' + h73
+    h75 = '{"file":"' + h74 + '"}'
     data = json.loads(h75)
     res = makeWebhookResult(data)
     return res
