@@ -26,6 +26,7 @@ def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
     prt = parameters.get("Zodiac")
+    trt = zodsign(prt)
     baseurl = "https://new.theastrologer.com/"
     url = baseurl + prt + '/'
     hj = urlopen(url)
@@ -33,13 +34,13 @@ def processRequest(req):
     cbt = gh.decode()
     dbt = '<p>(.+?)</p>'
     ebt = re.findall(dbt,cbt)
-    xbt = ebt[0]
+    xbt = ebt[5]
     aat = '<div class="daily-horoscope-date">(.+?)</div>'
     bbt = re.findall(aat,cbt)
-    u1 = str(bbt[2])
+    u1 = str(bbt[1])
     u2 = u1.replace("<sup>", "")
     u3 = u2.replace("</sup>", "")
-    joke = 'Zodiac Sign : ' + prt + '\nDate : ' + u3 + '\nResult :\n ' + xbt
+    joke = 'Zodiac Sign : ' + prt + ' ' + trt  '\nDate : ' + u3 + '\nResult :' + '\n' + xbt
     # print(json.dumps(item, indent=4))
     speech = joke
 
@@ -55,6 +56,55 @@ def processRequest(req):
     }
 
 
+def zodsign(prt):
+    if (prt == "Aries"):
+        return "♈ "
+    elif (prt == "Taurus"):
+        return "♉ "
+    elif (prt == "Gemini"):
+        return "♊ "
+    elif (prt == "Cancer"):
+        return "♋ "
+    elif (prt == "Leo"):
+        return "♌ "
+    elif (prt == "Virgo"):
+        return "♍ "
+    elif (prt == "Libra"):
+        return "♎ "
+    elif (prt == "Sagittarius"):
+        return "♐ "
+    elif (prt == "Capricorn"):
+        return "♑ "
+    elif (prt == "Aquarius"):
+        return "♒ "
+    elif (prt == "Pisces"):
+        return "♓ "
+    if (prt == "aries"):
+        return "♈ "
+    elif (prt == "taurus"):
+        return "♉ "
+    elif (prt == "gemini"):
+        return "♊ "
+    elif (prt == "cancer"):
+        return "♋ "
+    elif (prt == "leo"):
+        return "♌ "
+    elif (prt == "virgo"):
+        return "♍ "
+    elif (prt == "libra"):
+        return "♎ "
+    elif (prt == "sagittarius"):
+        return "♐ "
+    elif (prt == "capricorn"):
+        return "♑ "
+    elif (prt == "aquarius"):
+        return "♒ "
+    elif (prt == "pisces"):
+        return "♓ " 
+    else:
+        return {}
+
+ 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
