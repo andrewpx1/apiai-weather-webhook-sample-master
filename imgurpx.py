@@ -26,9 +26,11 @@ app = Flask(__name__)
 
 def scheck(easi):
     if (easi > 60):
-        return 60
+        return randint(0, 60)
+    elif (easi <2 ):
+        return 0
     else:
-        return easi
+        return randint(0, easi)
 
 
 def processRequest(req):
@@ -48,11 +50,9 @@ def processRequest(req):
     eas = e[0].replace("," , "")
     easi = int(eas)
     h1 = scheck(easi)
-    h2i = int(h1) + 1
-    h3 = randint(0, h2i)
     h41 = 'href="/gallery/(.+?)"'
     h51 = findall(h41,c)
-    h61 = h51[h3]
+    h61 = h51[h1]
     nurl = 'http://imgur.com/gallery/' + h61
     a10 = requests.get(nurl, headers=headers)
     h7 = a10.content
