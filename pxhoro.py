@@ -100,7 +100,7 @@ def zodsign(prt):
     elif (prt == "aquarius"):
         return "♒ "
     elif (prt == "pisces"):
-        return "♓ " 
+        return "♓ "
     else:
         return {}
 
