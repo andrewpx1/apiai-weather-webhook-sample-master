@@ -49,7 +49,7 @@ def processRequest(req):
     a10 = requests.get(nurl, headers=headers)
     h7 = a10.content
     hdec1 = h7.decode()
-    h711 ='src="//i.imgur.com/(.+?)"'
+    h711 = 'src="//i.imgur.com/(.+?)"'
     h721 = findall(h711,hdec1)
     h73 = h721[0]
     h74 = 'http://i.imgur.com/' + h73
