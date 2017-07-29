@@ -40,7 +40,7 @@ def processRequest(req):
     u1 = str(bbt[1])
     u2 = u1.replace("<sup>", "")
     u3 = u2.replace("</sup>", "")
-    joke = 'Zodiac Sign : ' + prt + ' ' + trt  '\nDate : ' + u3 + '\nResult :' + '\n' + xbt
+    joke = 'Zodiac Sign : ' + prt + ' ' + trt + '\nDate : ' + u3 + '\nResult :' + '\n' + xbt
     # print(json.dumps(item, indent=4))
     speech = joke
 
