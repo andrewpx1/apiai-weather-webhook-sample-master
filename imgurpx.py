@@ -24,6 +24,13 @@ from flask import make_response
 app = Flask(__name__)
 
 
+def scheck(easi):
+    if (easi > 60):
+        return 60
+    else:
+        return easi
+
+
 def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
@@ -38,10 +45,11 @@ def processRequest(req):
     c = b.decode()
     d = '<span class="sorting-text-align">Found <i>(.+?)<'
     e = findall(d,c)
-    g = int(e[0])
-    h1 = g * 0.5
+    eas = e[0].replace("," , "")
+    easi = int(eas)
+    h1 = scheck(easi)
     h2i = int(h1) + 1
-    h3 = randint(1, h2i)
+    h3 = randint(0, h2i)
     h41 = 'href="/gallery/(.+?)"'
     h51 = findall(h41,c)
     h61 = h51[h3]
@@ -70,6 +78,13 @@ def makeWebhookResult(data):
     print(speech)
 
     if getext(joke) == ".gif":
+        kik_message = [
+            {
+                "type": "video",
+                "videoUrl": speech
+            }
+        ]
+    elif getext(joke) == ".mp4":
         kik_message = [
             {
                 "type": "video",
