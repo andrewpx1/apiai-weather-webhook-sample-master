@@ -34,7 +34,8 @@ def processRequest(req):
     cbt = gh.decode()
     dbt = '<p>(.+?)</p>'
     ebt = re.findall(dbt,cbt)
-    xbt = ebt[5]
+    lbt = ebt[5]
+    xbt = re.sub('<[^<]+?>', '', lbt)
     aat = '<div class="daily-horoscope-date">(.+?)</div>'
     bbt = re.findall(aat,cbt)
     u1 = str(bbt[1])
